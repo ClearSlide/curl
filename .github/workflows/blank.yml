@@ -8,16 +8,11 @@ on:
     paths:
       - 'operations/us-east-1/containers/wazuh-reports/daily/**'
   workflow_dispatch:
-    inputs:
-      image_tag:
-        description: 'Log level'
-        required: true
-        default: $GITHUB_SHA
+  
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - run: |
           echo "Log level: $GITHUB_SHA"
-        env:
-          GITHUB_SHA: ${{ inputs.image_tag }}
+       
